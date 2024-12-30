@@ -11,16 +11,9 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="contact-table-body">
                     {% for contact in contacts %}
-                        <tr>
-                            <td>{{ contact.name }}</td>
-                            <td>{{ contact.email }}</td>
-                            <td>{{ contact.created_at|date:"M d, Y" }}</td>
-                            <td>
-                                <button class="btn btn-xs btn-error">Delete</button>
-                            </td>
-                        </tr>
+                        {% include 'partials/contact-row.html' %}
                     {% endfor %}
                 </tbody>
             </table>

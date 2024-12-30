@@ -15,7 +15,7 @@ class ContactForm(forms.ModelForm):
             'class': 'input input-bordered w-full',
             'placeholder': 'Email Address'
         })
-    )    
+    )
 
     class Meta:
         model = Contact
