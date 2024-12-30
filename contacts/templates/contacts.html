@@ -5,44 +5,10 @@
 <div>
     <h1 class="text-4xl text-success mb-4">Contact Manager</h1>
 
-    <form method="post" class="mb-4">
-      {% csrf_token %}
-
-      <div class="form-control w-full">
-        <label class="label">
-          <span class="label-text">Name</span>
-        </label>
-
-        {{ form.name }}
-
-        {% if form.name.errors %}
-            <label class="label text-error">
-                {{ form.name.errors }}
-            </label>
-        {% endif %}        
-
-      </div>
-
-      <div class="form-control w-full">
-        <label class="label">
-          <span class="label-text">Email</span>
-        </label>
-
-        {{ form.email }}
-
-        {% if form.email.errors %}
-            <label class="label text-error">
-                {{ form.email.errors }}
-            </label>
-        {% endif %}        
-
-      </div>
-
-      <div class="mt-4">
-        <button type="submit" class="btn btn-primary">Add Contact</button>
-    </div>      
-
-    </form>
+    <button class="btn btn-primary mb-4" onclick="contact_modal.showModal()">
+      Add New Contact
+    </button>
+    {% include 'partials/add-contact-modal.html' %}
 
     <label class="input input-bordered flex items-center gap-2 mb-2">
         <input 
