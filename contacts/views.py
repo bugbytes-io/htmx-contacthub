@@ -37,7 +37,7 @@ def search_contacts(request):
 @login_required
 @require_http_methods(['POST'])
 def create_contact(request):
-    form = ContactForm(request.POST, initial={'user': request.user})
+    form = ContactForm(request.POST, request.FILES, initial={'user': request.user})
     if form.is_valid():
         contact = form.save(commit=False)
         contact.user = request.user

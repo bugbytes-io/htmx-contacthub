@@ -3,6 +3,15 @@
     <td>{{ contact.email }}</td>
     <td>{{ contact.created_at|date:"M d, Y" }}</td>
     <td>
+        {% if contact.document %}
+            <a href="{{ contact.document.url }}" class="btn btn-ghost btn-xs" target="_blank">
+                Download Document
+            </a>
+        {% else %}
+            <span class="text-red-500">No document</span>
+        {% endif %}
+    </td>
+    <td>
         <button class="btn btn-xs btn-error"
             hx-delete="{% url 'delete-contact' contact.pk %}"
             hx-on:contact-deleted="this.closest('tr').remove();"

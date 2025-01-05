@@ -6,6 +6,7 @@
         <form hx-post="{% url 'create-contact' %}" 
             hx-target="#contact-table-body"
             hx-swap="afterbegin"
+            hx-encoding='multipart/form-data'
             hx-on:success="contact_modal.close(); this.reset();"
             class="mb-4">
             {% csrf_token %}
@@ -39,6 +40,21 @@
             {% endif %}        
 
             </div>
+
+            <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text">Document</span>
+                </label>
+    
+                {{ form.document }}
+    
+                {% if form.document.errors %}
+                    <label class="label text-error">
+                        {{ form.document.errors }}
+                    </label>
+                {% endif %}        
+    
+                </div>
 
             <div class="modal-action">
                 <button type="button" class="btn"
